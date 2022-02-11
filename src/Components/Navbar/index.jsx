@@ -16,8 +16,12 @@ const Navbar = ({ isAuth, setIsAuth }) => {
     return (
         <nav>
             <Link to="/" >Home</Link>
-            <Link to="/createpost" >Create Post</Link>
-            {!isAuth ? <Link to="/signin" >Login</Link> : <button onClick={signOutUser}>Sign Out</button>}
+            {!isAuth ? <Link to="/signin" >Login</Link> :
+                <>
+                    <Link to="/createpost" isAuth={isAuth} >Create Post</Link>
+                    <button onClick={signOutUser}>Sign Out</button>
+                </>
+            }
 
         </nav>
     )

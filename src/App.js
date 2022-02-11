@@ -10,7 +10,7 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   return (
     <Router>
-      <Navbar />
+      <Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<Signin setIsAuth={setIsAuth} />} />

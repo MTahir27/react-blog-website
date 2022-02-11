@@ -1,13 +1,24 @@
 import React from 'react'
 import "./style.css";
 import { Link } from 'react-router-dom';
+import { signOut } from "firebase/auth";
+import { auth } from '../../Firebase/firebase-config';
 
-const Navbar = () => {
+const Navbar = ({ isAuth, setIsAuth }) => {
+    const signOutUser = () => {
+        signOut(auth).then(() => {
+            localStorage.clear();
+            setIsAuth(false);
+            window.location.pathname = "/signin";
+        })
+
+    }
     return (
         <nav>
             <Link to="/" >Home</Link>
-            <Link to="/signin" >Login</Link>
             <Link to="/createpost" >Create Post</Link>
+            {!isAuth ? <Link to="/signin" >Login</Link> : <button onClick={signOutUser}>Sign Out</button>}
+
         </nav>
     )
 }

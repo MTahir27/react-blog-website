@@ -4,14 +4,16 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import CreatePost from "./pages/CreatePost";
 import Navbar from "./Components/Navbar";
+import { useState } from "react";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
   return (
     <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<Signin />} />
+        <Route path="/signin" element={<Signin setIsAuth={setIsAuth} />} />
         <Route path="/createpost" element={<CreatePost />} />
       </Routes>
     </Router>

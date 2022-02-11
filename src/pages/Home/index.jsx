@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import "./style.css";
+import Post from '../../Components/Post';
 
 const Home = () => {
     return (
-        <div>Home</div>
+        <div>
+            <Post />
+        </div>
     )
 }
 

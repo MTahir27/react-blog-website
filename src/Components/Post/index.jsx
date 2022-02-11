@@ -3,7 +3,9 @@ import "./style.css";
 
 const Post = () => {
     return (
-        <div>post</div>
+        <div>
+            post
+        </div>
     )
 }
 

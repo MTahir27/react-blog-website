@@ -1,10 +1,10 @@
 import React from 'react';
 import "./style.css";
 
-const Post = () => {
+const Post = ({ ...post }) => {
     return (
         <div>
-            post
+            {post.title}
         </div>
     )
 }

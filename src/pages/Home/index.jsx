@@ -17,7 +17,13 @@ const Home = () => {
 
     return (
         <div className='homePage'>
-            <Post />
+            {
+                postLists.map((post, index) => {
+                    return (
+                        <Post {...post} key={index} />
+                    )
+                })
+            }
         </div>
     )
 }

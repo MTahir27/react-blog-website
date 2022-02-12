@@ -10,7 +10,6 @@ const Post = ({ ...post }) => {
             <div className="postTextContainer">
                 {post.post}
             </div>
-            <h3>@{post.name}</h3>
         </div>
     )
 }

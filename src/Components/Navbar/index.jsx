@@ -19,7 +19,7 @@ const Navbar = ({ isAuth, setIsAuth }) => {
             {!isAuth ? <Link to="/signin" >Login</Link> :
                 <>
                     <Link to="/createpost" isAuth={isAuth} >Create Post</Link>
-                    <button onClick={signOutUser}>Sign Out</button>
+                    <a onClick={signOutUser} style={{ cursor: "pointer" }}>Sign Out</a>
                 </>
             }
 

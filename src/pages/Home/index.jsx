@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import "./style.css";
-import Post from '../../Components/Post';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, getDocs, doc } from "firebase/firestore";
 import { db } from "../../Firebase/firebase-config";
 
 const Home = () => {
@@ -15,12 +14,28 @@ const Home = () => {
         getPosts();
     })
 
+    const deletePost = async () => {
+        const postDoc = doc(db, "posts",)
+        await deleteDoc()
+    }
+
     return (
         <div className='homePage'>
             {
                 postLists.map((post, index) => {
                     return (
-                        <Post {...post} key={index} />
+                        <div className='post' key={`post${index}`}>
+                            <div className="postHeader">
+                                <div className="title"><h1>{post.title}</h1></div>
+                                <div className="deletePost">
+                                    <button onClick={() => { deletePost() }}>&#128465;</button>
+                                </div>
+                            </div>
+                            <div className="postTextContainer">
+                                {post.post}
+                            </div>
+                            <h3>{post.author.name}</h3>
+                        </div>
                     )
                 })
             }

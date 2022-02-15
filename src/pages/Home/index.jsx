@@ -9,7 +9,7 @@ const Home = ({ isAuth }) => {
     useEffect(() => {
         const getPosts = async () => {
             const data = await getDocs(postsCollectionRef);
-            setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.data.id })));
+            setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
         }
         getPosts();
     })
@@ -24,7 +24,7 @@ const Home = ({ isAuth }) => {
             {
                 postLists.map((post, index) => {
                     return (
-                        <div className='post' key={`post${index}`}>
+                        <div div className='post' key={`post${index}`}>
                             <div className="postHeader">
                                 <div className="title"><h1>{post.title}</h1></div>
                                 {isAuth && post.author.id === auth.currentUser.uid &&
@@ -42,7 +42,7 @@ const Home = ({ isAuth }) => {
                     )
                 })
             }
-        </div>
+        </div >
     )
 }
 

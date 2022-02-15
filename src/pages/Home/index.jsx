@@ -14,9 +14,9 @@ const Home = () => {
         getPosts();
     })
 
-    const deletePost = async () => {
-        const postDoc = doc(db, "posts",)
-        await deleteDoc()
+    const deletePost = async (id) => {
+        const postDoc = doc(db, "posts", id);
+        await deleteDoc(postDoc);
     }
 
     return (
@@ -28,7 +28,7 @@ const Home = () => {
                             <div className="postHeader">
                                 <div className="title"><h1>{post.title}</h1></div>
                                 <div className="deletePost">
-                                    <button onClick={() => { deletePost() }}>&#128465;</button>
+                                    <button onClick={() => { deletePost(post.id) }}>&#128465;</button>
                                 </div>
                             </div>
                             <div className="postTextContainer">
